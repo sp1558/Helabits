@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Helabits - Habit Tracker</title>
+    <link rel="stylesheet" href="Helabits_style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <img src="primarylogo.png" alt="Helabits Logo" class="logo">
+    </header>
+    <main>
+        <div class="content-container">
+            <!-- Left Side Panel -->
+            <aside class="side-panel left-panel">
+                <h3>Motivational Quotes</h3>
+                <p id="quote">"Success is the sum of small efforts, repeated day in and day out." – Robert Collier</p>
+                <button onclick="generateQuote()">New Quote</button>
+            </aside>
+
+            <!-- Main Content -->
+            <section id="habit-form">
+                <h2>Add New Habit</h2>
+                <div class="form-container">
+                    <input id="habit-name" type="text" placeholder="Habit Name">
+                    <input id="habit-goal" type="number" placeholder="Goal (e.g., 8 glasses)">
+                    <input id="habit-category" type="text" placeholder="Category (e.g., Health)">
+                    <button onclick="addHabit()">Add Habit</button>
+                </div>
+            </section>
+            <section id="habit-list-section">
+                <h2>Your Habits</h2>
+                <ul id="habit-list"></ul>
+            </section>
+
+            <!-- Right Side Panel -->
+            <aside class="side-panel right-panel">
+                <h3>Habit-Building Tips</h3>
+                <ul>
+                    <li>Start small. Focus on one habit at a time.</li>
+                    <li>Set realistic and measurable goals.</li>
+                    <li>Track your progress daily.</li>
+                    <li>Celebrate your successes!</li>
+                    <li>Visualize your goals to stay motivated.</li>
+                    <li>Stack habits by associating new ones with existing routines.</li>
+                    <li>Create reminders and alerts to stay consistent.</li>
+                    <li>Share your progress with a friend for accountability.</li>
+                    <li>Reward yourself for achieving milestones.</li>
+                    <li>Be patient—habit formation takes time.</li>
+                    <li>Be humble through the journey.</li>
+                    <li>Never give up.</li>
+                    <li>Unmake and remake yourself!</li>
+                    <li>Get the WIN and make yourself PROUD!</li>
+                </ul>
+            </aside>
+        </div>
+    </main>
+    <footer>
+        <img src="secondarylogo.png" alt="Helabits Icon" class="footer-logo">
+        <p>&copy; 2024 Helabits. All rights reserved.</p>
+    </footer>
+    <script src="Helabits_app.js"></script>
+</body>
+</html>
