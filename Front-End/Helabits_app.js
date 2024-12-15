@@ -16,12 +16,13 @@ function generateQuote() {
     document.getElementById("quote").innerText = quotes[randomIndex];
 }
 
+const BASE_URL = 'https://helabits-production.up.railway.app';
+
 let habits = [];
 
-// Back-End Habit Fetch
 async function fetchHabits() {
     try {
-        const response = await fetch('http://localhost:5000/habits');
+        const response = await fetch(`${BASE_URL}/habits`);
         const data = await response.json();
         habits = data;
         displayHabits();
@@ -45,7 +46,7 @@ async function addHabit() {
         };
 
         try {
-            const response = await fetch('http://localhost:5000/habits', {
+            const response = await fetch(`${BASE_URL}/habits`, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(newHabit),
@@ -73,7 +74,7 @@ async function updateProgress(id, increment = true) {
     const day = new Date().toLocaleString('en-US', { weekday: 'long' }); // Day of Week
 
     try {
-        const response = await fetch(`http://192.168.1.142:5000/habits/${id}`, {
+        const response = await fetch(`${BASE_URL}/habits/${id}`, {
             method: 'PUT',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ day, increment }),
@@ -115,7 +116,6 @@ function displayHabits() {
     });
 }
 
-// Clear
 function clearInputs() {
     document.getElementById('habit-name').value = '';
     document.getElementById('habit-goal').value = '';
