@@ -36,6 +36,17 @@ app.put('/habits/:id', (req, res) => {
     res.json(habit);
 });
 
+app.delete('/habits/:id', (req, res) => {
+    const { id } = req.params;
+    const habitIndex = habits.findIndex(h => h.id === parseInt(id));
+    if (habitIndex !== -1) {
+        const deletedHabit = habits.splice(habitIndex, 1);
+        res.status(200).json({ message: 'Habit deleted successfully', deletedHabit });
+    } else {
+        res.status(404).json({ message: 'Habit not found' });
+    }
+});
+
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
     console.log(`Server is running on port ${PORT}`);
