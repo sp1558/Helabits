@@ -9,7 +9,8 @@ Helabits is a web application structured to empower and strengthen users to buil
 - A modern, responsive design that is optimized for desktop users and mobile users as well.
 
 # Technologies Utilized
-- Front-end: HTML, CSS, JavaScript, Railway
+- Front-end: HTML, CSS, JavaScript
+- Back-end: Node.js, Railway
 
 # Set-Up Instructions
 1. Clone the Repository: git clone <repository_url> cd helabits.
