@@ -20,6 +20,7 @@ const BASE_URL = 'https://helabits-production.up.railway.app';
 
 let habits = [];
 
+// Fetch Habits
 async function fetchHabits() {
     try {
         const response = await fetch(`${BASE_URL}/habits`);
@@ -32,18 +33,14 @@ async function fetchHabits() {
     }
 }
 
-// New Habit
+// Add New Habit
 async function addHabit() {
     const name = document.getElementById('habit-name').value;
     const goal = parseInt(document.getElementById('habit-goal').value);
     const category = document.getElementById('habit-category').value;
 
     if (name && goal && category) {
-        const newHabit = {
-            name,
-            goal,
-            category
-        };
+        const newHabit = { name, goal, category };
 
         try {
             const response = await fetch(`${BASE_URL}/habits`, {
@@ -69,9 +66,9 @@ async function addHabit() {
     }
 }
 
-// Habit Progression
+// Update Habit Progress
 async function updateProgress(id, increment = true) {
-    const day = new Date().toLocaleString('en-US', { weekday: 'long' }); // Day of Week
+    const day = new Date().toLocaleString('en-US', { weekday: 'long' });
 
     try {
         const response = await fetch(`${BASE_URL}/habits/${id}`, {
@@ -93,7 +90,26 @@ async function updateProgress(id, increment = true) {
     }
 }
 
-// Front-End Habit Display
+// Delete Habit
+async function deleteHabit(id) {
+    try {
+        const response = await fetch(`${BASE_URL}/habits/${id}`, {
+            method: 'DELETE',
+        });
+
+        if (response.ok) {
+            habits = habits.filter(habit => habit.id !== id);
+            displayHabits();
+        } else {
+            alert("Failed to delete the habit.");
+        }
+    } catch (error) {
+        console.error("Error deleting habit:", error);
+        alert("Failed to connect to the server.");
+    }
+}
+
+// Display Habits
 function displayHabits() {
     const habitList = document.getElementById('habit-list');
     habitList.innerHTML = '';
@@ -110,6 +126,7 @@ function displayHabits() {
             <div>
                 <button onclick="updateProgress(${habit.id}, true)">+</button>
                 <button onclick="updateProgress(${habit.id}, false)">-</button>
+                <button onclick="deleteHabit(${habit.id})" style="background-color: red; color: white;">Delete</button>
             </div>
         `;
         habitList.appendChild(habitItem);
