@@ -5,6 +5,7 @@ Helabits is a web application structured to empower and strengthen users to buil
 - Displays motivational quotes to inspire users which randomly alternate at the click of the "New Quote" button.
 - Allows for easy implementation, updating, and deletion of habits.
 - Provides a great list of habit-building tips and tricks to encourage users to be consistent.
+- Allows users to track their habit formations on a weekly-basis and compare metrics (hit goals, missed goals, etc).
 - Displays user progress in a dynamic manner with an "+" (add) and "-" (subtract) button functionality.
 - A modern, responsive design that is optimized for desktop users and mobile users as well.
 
